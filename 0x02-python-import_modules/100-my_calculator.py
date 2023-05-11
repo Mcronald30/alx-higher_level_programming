@@ -13,14 +13,9 @@ if __name__ == "__main__":
     op = sys.argv[2]
     b = int(sys.argv[3])
 
-    if op == '+':
-        print("{:d} {} {:d} = {:d}".format(a, op, b, add(a, b)))
-elif op == '-':
-    print("{:d} {} {:d} = {:d}".format(a, op, b, sub(a, b)))
-elif op == '*':
-    print("{:d} {} {:d} = {:d}".format(a, op, b, mul(a, b)))
-elif op == '/':
-    print("{:d} {} {:d} = {:d}".format(a, op, b, div(a, b)))
-else:
-    print("Unknown operator. Available operators: +, -, * and /")
-    sys.exit(1)
+    ops = {"+": add, "-": sub, "*": mul, "/": div}
+    if op not in list(ops.keys()):
+        print("Unknown operator. Available operators: +, -, * and /")
+        sys.exit(1)
+
+    print("{} {} {} = {}".format(a, sys.argv[2], b, ops[sys.argv[2]](a, b)))
