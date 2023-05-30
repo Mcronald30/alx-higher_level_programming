@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-"""
-Creating an empty class called 'Square'
-"""
 class Square:
-"""placeholder to indicate that the class body is empty."""
+    """
+    A class that defines a square.
+
+    This class serves as a blueprint for creating square objects.
+    """
     pass
