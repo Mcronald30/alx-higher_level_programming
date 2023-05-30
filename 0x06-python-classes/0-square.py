@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-"""A class that defines a square."""
+""" Create the square class """
+
 
 class Square:
-
-    """This class serves as a blueprint for creating square objects."""
+    """ Creates the att of the square class """
     pass
