@@ -1,8 +1,9 @@
 #!/usr/bin/python3
-"""Define a class Square."""
-"""Initialises the data"""
+
 class Square:
+    """Define a class Square."""
     def __init__(self, size=0):
+        """Initialises the data"""
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
         elif size < 0:
