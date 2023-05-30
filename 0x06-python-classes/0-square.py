@@ -3,7 +3,5 @@
 
 class Square:
 
-
     """This class serves as a blueprint for creating square objects."""
-
     pass
