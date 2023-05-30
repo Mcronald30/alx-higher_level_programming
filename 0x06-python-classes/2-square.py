@@ -1,7 +1,8 @@
 #!/usr/bin/python3
+""" Creating a square class """
 
 class Square:
-    """Define a class Square."""
+    """ Defining a class square """
     def __init__(self, size=0):
         """Initialises the data"""
         if not isinstance(size, int):
