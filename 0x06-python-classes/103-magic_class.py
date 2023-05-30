@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-import dis
-import math
 """Magic class from a given ByteCode."""
+import math
+
 
 class MagicClass:
     """Initialize the MagicClass."""
