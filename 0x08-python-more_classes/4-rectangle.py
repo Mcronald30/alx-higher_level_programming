@@ -55,5 +55,5 @@ class Rectangle:
         return ((("#" * self.width) + "\n") * self.height)[:-1]
 
     def __repr__(self):
-        """Prints the rectangle"""
+        """Prints the rectangle from eval"""
         return "Rectangle({}, {})".format(self.width, self.height)
