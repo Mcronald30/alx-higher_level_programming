@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Creating class of rectangle"""
+""" Creating class of rectangle """
 
 
 class Rectangle:
@@ -51,4 +51,4 @@ class Rectangle:
         return ((("#" * self.width) + "\n") * self.height)[:-1]
 
     def __repr__(self):
-        return f"Rectangle({self.width}, {self.height})"
+        return "Rectangle({}, {})".format(self.width, self.height)
