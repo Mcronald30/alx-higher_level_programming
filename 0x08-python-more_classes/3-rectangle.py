@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Creating class of a rectangle"""
+""" Creating class of a rectangle """
 
 
 class Rectangle:
@@ -11,6 +11,7 @@ class Rectangle:
 
     @property
     def width(self):
+        """Get the width of the rectangle"""
         return self.__width
 
     @width.setter
@@ -23,6 +24,7 @@ class Rectangle:
 
     @property
     def height(self):
+        """Get the height of the rectangle"""
         return self.__height
 
     @height.setter
