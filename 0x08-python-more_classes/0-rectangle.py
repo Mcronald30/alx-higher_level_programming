@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-"""Creating a Class  Rectangle"""
+""" Creating rectangle class """
+
 
 class Rectangle:
-    """Define class Rectangle"""
+    """Define class rectangle"""
     pass
