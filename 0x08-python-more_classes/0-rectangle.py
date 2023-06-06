@@ -2,8 +2,6 @@
 """Creating a Class  Rectangle"""
 
 
-
-
 class Rectangle:
-    """Define the class rectangle"""
+    
     pass
