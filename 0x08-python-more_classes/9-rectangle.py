@@ -3,7 +3,6 @@
 Creating Rectangle class
 """
 
-
 class Rectangle:
     """Represent the rectangle.
     Attributes:
@@ -79,7 +78,7 @@ class Rectangle:
 
     @classmethod
     def square(cls, size=0):
-        """Return a new Rectangle with width and height equal to size.
+        """Return new Rectangle with width and height equal to size.
         Args:
             size (int): The width and height of the new Rectangle
         """
@@ -94,11 +93,12 @@ class Rectangle:
 
         rectangle = []
         for i in range(self.__height):
-            [rectangle.append(str(self.print_symbol))
-            for j in range(self.__width)]
+            rectangle.append(str(self.print_symbol))
+            for j in range(self.__width):
+
             if i != self.__height - 1:
                 rectangle.append("\n")
-        return ("".join(rectangle))
+                return ("".join(rectangle))
 
     def __repr__(self):
         """Return the string representation of the Rectangle."""
