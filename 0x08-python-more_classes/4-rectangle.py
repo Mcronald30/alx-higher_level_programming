@@ -3,6 +3,7 @@
 Creating class of rectangle based on 3-rectangle.py
 """
 
+
 class Rectangle:
     """Define the class rectangle"""
 
