@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-""" Creating class rectangle based on 4-rectangle.py"""
+"""
+Creating class rectangle based on 4-rectangle.py
+"""
+
 
 class Rectangle:
     """Define class rectangle."""
