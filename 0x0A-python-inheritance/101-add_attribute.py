@@ -3,15 +3,12 @@
 New attribute
 """
 
-def add_attribute(obj, attribute, value):
+def add_attribute(obj, attr_name, attr_value):
     """
     a function that adds a new attribute
     to an object if it’s possible
     """
-    if not hasattr(obj, "__dict__"):
-        """
-        The function first checks if
-        the obj has a __dict__ attribute
-        """
+    if hasattr(obj, '__dict__'):
+        setattr(obj, attr_name, attr_value)
+    else:
         raise TypeError("can't add new attribute")
-    obj.__dict__[attribute] = value
