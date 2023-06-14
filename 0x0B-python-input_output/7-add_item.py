@@ -6,6 +6,7 @@ Load, add, save
 
 import sys
 import json
+from os import path
 
 
 def save_to_json_file(my_obj, filename):
@@ -22,16 +23,17 @@ def load_from_json_file(filename):
         return json.load(file)
 
 
-filename = "add_item.json"
+args = sys.argv[1:]
 
-# Load existing data from file
-try:
-    data = load_from_json_file(filename)
-except:
-    data = []
 
-# Add command-line arguments to the list
-data.extend(sys.argv[1:])
+if path.exists('add_item.json'):
+    items = load_from_json_file('add_item.json')
+else:
+    items = []
 
-# Save updated list to file
-save_to_json_file(data, filename)
+    items.extend(args)
+
+
+    # Save updated list to file
+    save_to_json_file(items, 'add_item.json')
+
