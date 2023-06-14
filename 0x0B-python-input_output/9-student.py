@@ -14,4 +14,5 @@ class Student:
 
 
     def to_json(self):
+        """Convert too JSON"""
         return self.__dict__
