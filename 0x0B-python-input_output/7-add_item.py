@@ -6,34 +6,20 @@ Load, add, save
 
 import sys
 import json
-from os import path
+import os.path
 
+save_to_json_file = __import__("5-save_to_json_file").save_to_json_file
+load_from_json_file = __import__("6-load_from_json_file").load_from_json_file
 
-def save_to_json_file(my_obj, filename):
-    """
-    Write a script that adds all arguments
-    to a Python list, and then save them to a file
-    """
-    with open(filename, "w") as file:
-        json.dump(my_obj, file)
+my_file = 'add_item.json'
 
+my_list = []
 
-def load_from_json_file(filename):
-    with open(filename, "r") as file:
-        return json.load(file)
+if os.path.exists(my_file) and os.path.getsize(my_file) > 0:
+    my_list = load_from_json_file(my_file)
 
+if len(sys.argv) > 1:
+    for elem in sys.argv[1:]:
+        my_list.append(elem)
 
-args = sys.argv[1:]
-
-
-if path.exists('add_item.json'):
-    items = load_from_json_file('add_item.json')
-else:
-    items = []
-
-    items.extend(args)
-
-
-    # Save updated list to file
-    save_to_json_file(items, 'add_item.json')
-
+save_to_json_file(my_list, my_file)
