@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""Student to JSON"""
+"""
+Student to JSON
+"""
 
 
 class Student:
