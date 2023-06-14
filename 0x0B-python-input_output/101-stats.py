@@ -1,38 +1,42 @@
 #!/usr/bin/python3
-"""Log parsing"""
+"""
+Creating Log parsing
+"""
 
 
 import sys
 
-status_codes = {'200': 0, '301': 0, '400': 0, '401': 0, '403': 0, '404': 0, '405': 0, '500': 0}
-total_file_size = 0
-line_count = 0
 
-try:
-    for line in sys.stdin:
-        line_count += 1
+if __name__ == "__main__":
+    size = [0]
+    codes = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
 
-    """Extract relevant information from the line"""
-    parts = line.split()
-    file_size = int(parts[-1])
-    status_code = parts[-2]
+    def check_match(line):
+        """Checks for regexp match in line"""
+        try:
+            line = line[:-1]
+            words = line.split(" ")
+            size[0] += int(words[-1])
+            code = int(words[-2])
+            if code in codes:
+                codes[code] += 1
+        except ValueError:
+            pass
 
-
-    total_file_size += file_size
-
-    if status_code in status_codes:
-        status_codes[status_code] += 1
-
-    if line_count % 10 == 0:
-        print("Total file size: {}".format(total_file_size))
-        for code in sorted(status_codes.keys()):
-            if status_codes[code] > 0:
-                print("{}: {}".format(code, status_codes[code]))
-
-
-except KeyboardInterrupt:
-    """Handle keyboard interruption (CTRL + C)"""
-    print("Total file size: {}".format(total_file_size))
-    for code in sorted(status_codes.keys()):
-        if status_codes[code] > 0:
-            print("{}: {}".format(code, status_codes[code]))
+    def print_stats():
+        """Printing accumulation statistics"""
+        print("File size: {}".format(size[0]))
+        for k in sorted(codes.keys()):
+            if codes[k]:
+                print("{}: {}".format(k, codes[k]))
+    i = 1
+    try:
+        for line in sys.stdin:
+            check_match(line)
+            if i % 10 == 0:
+                print_stats()
+            i += 1
+    except KeyboardInterrupt:
+        print_stats()
+        raise
+    print_stats()
