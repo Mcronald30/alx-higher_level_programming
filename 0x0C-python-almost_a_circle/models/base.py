@@ -34,8 +34,8 @@ class Base:
         filename = cls.__name__ + ".json"
         json_str = cls.to_json_string([obj.to_dictionary() for obj in list_objs])
 
-        with open(filename, "w") as file:
-            file.write(json_str)
+        with open(filename, "w") as f:
+            f.write(json_str)
 
     @staticmethod
     def from_json_string(json_string):
@@ -54,3 +54,17 @@ class Base:
 
         dummy.update(**dictionary)
         return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        """returns a list of instances"""
+        filename = cls.__name__ + ".json"
+
+        try:
+            with open(filename, "r") as f:
+                json_data = f.read()
+                data = cls.from_json_string(json_data)
+                instances = [cls.create(**item) for item in data]
+                return instances
+        except FileNotFoundError:
+            return []
