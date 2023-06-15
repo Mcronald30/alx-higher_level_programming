@@ -88,17 +88,12 @@ class Rectangle(Base):
         """overriding the __str__ method"""
         return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}"
 
-    def update(self, *args):
-        """assigns an argument to each attribute"""
-        num_args = len(args)
-
-        if num_args >= 1:
-            self.id = args[0]
-        if num_args >= 2:
-            self.width = args[1]
-        if num_args >= 3:
-            self.height = args[2]
-        if num_args >= 4:
-            self.x = args[3]
-        if num_args >= 5:
-            self.y = args[4]
+    def update(self, *args, **kwargs):
+        """assigning a key/value argument to each attribute"""
+        if args:
+            attributes = ['id', 'width', 'height', 'x', 'y']
+            for i, value in enumerate(args):
+                setattr(self, attributes[i], value)
+        elif kwargs:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
