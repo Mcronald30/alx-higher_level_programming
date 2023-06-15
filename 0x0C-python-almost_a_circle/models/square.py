@@ -23,7 +23,7 @@ class Square(Rectangle):
     def update(self, *args, **kwargs):
         """key/value (keyworded arguments)"""
         if args:
-            attributes = ['id', 'size', 'x', 'y']
+            attributes = ['id', 'x', 'size', 'y']
             for i, value in enumerate(args):
                 setattr(self, attributes[i], value)
         elif kwargs:
@@ -33,3 +33,12 @@ class Square(Rectangle):
     def __str__(self):
         """overloading __str__ method"""
         return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
+
+    def to_dictionary(self):
+        """returns the dictionary representation of a Square"""
+        return {
+                'id': self.id,
+                'x': self.x,
+                'size': self.size,
+                'y': self.y
+                }
