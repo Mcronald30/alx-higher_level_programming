@@ -17,13 +17,13 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     Base.metadata.create_all(engine)
 
-    # create a session
+    # create session
     session = Session()
 
-    # extract all states
+    # queery first states
     states = session.query(State).order_by(State.id).all()
 
-    # print all states
+    # display object states
     for state in states:
         print("{}: {}".format(state.id, state.name))
 
