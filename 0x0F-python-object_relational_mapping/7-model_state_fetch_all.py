@@ -21,10 +21,10 @@ if __name__ == "__main__":
     session = Session()
 
     # queery first states
-    states = session.query(State).order_by(State.id).all()
+    state = session.query(State).order_by(State.id).all()
 
     # display object states
-    for state in states:
-        print("{}: {}".format(state.id, state.name))
+    for states in state:
+        print("{}: {}".format(states.id, states.name))
 
     session.close()
