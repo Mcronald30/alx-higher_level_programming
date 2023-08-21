@@ -20,11 +20,11 @@ if __name__ == '__main__':
     session = Session()
 
     # Query first state
-    states = session.query(State).filter(State.name.ilike('%a%')) \
+    state = session.query(State).filter(State.name.ilike('%a%')) \
                     .order_by(State.id).all()
 
     # display object state
-    for state in states:
-        print("{}: {}".format(state.id, state.name))
+    for states in state:
+        print("{}: {}".format(states.id, states.name))
 
     session.close()
