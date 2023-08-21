@@ -14,11 +14,15 @@ if __name__ == "__main__":
             .format(sys.argv[1], sys.argv[2], sys.argv[3]),
             pool_pre_ping=True)
 
+    # Create the database engine
     Session = sessionmaker(bind=engine)
     Base.metadata.create_all(engine)
-    
+
+    # Create a session
     session = Session()
     states = session.query(State).order_by(State.id).all()
+
+    # Query and display State objects
     for state in states:
         print("{}: {}".format(state.id, state.name))
-        session.close()
+    session.close()
