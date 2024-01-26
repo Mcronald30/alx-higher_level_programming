@@ -16,12 +16,12 @@ if __name__ == "__main__":
         commmits_url = "https://api.github.com/repos/{}/{}/commits" \
             .format(username, repo_name)
         response = requests.get(commmits_url)
-        json_object = response.json()
-        for x, obj_ in enumerate(json_object):
-            if x == 10:
+        json_obj = response.json()
+        for i, obj in enumerate(json_obj):
+            if i == 10:
                 break
             if type(obj) is dict:
-                name = obj_.get('commit').get('author').get('name')
-                print("{}: {}".format(obj_.get('sha'), name))
+                name = obj.get('commit').get('author').get('name')
+                print("{}: {}".format(obj.get('sha'), name))
     except ValueError as invalid_json:
         pass
